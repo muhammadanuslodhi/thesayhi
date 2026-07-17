@@ -1,9 +1,10 @@
-// app/Components/AboutHero.tsx
+"use client";
 
+import { motion } from "framer-motion";
 import { Calendar } from "lucide-react";
 
 const aboutHeroData = {
-  badge: "About",
+  badge: "🚀 About TheSayHi",
   heading: "Real humans, building the future of ",
   headingHighlight: "customer engagement.",
   description:
@@ -16,59 +17,48 @@ const aboutHeroData = {
 
 export default function AboutHero() {
   return (
-    <section className="relative pt-32 md:pt-40 pb-16 md:pb-24 overflow-hidden">
-      {/* Blobs */}
-      <div
-        className="pointer-events-none absolute inset-0 overflow-hidden"
-        aria-hidden="true"
-      >
-        <div className="absolute -top-24 -left-24 h-[28rem] w-[28rem] rounded-full bg-brand/20 blur-3xl animate-blob"></div>
-        <div
-          className="absolute -bottom-32 -right-16 h-[32rem] w-[32rem] rounded-full bg-brand-2/25 blur-3xl animate-blob"
-          style={{ animationDelay: "-6s" }}
-        ></div>
-        <div
-          className="absolute top-1/3 left-1/2 h-72 w-72 rounded-full bg-sky-400/20 blur-3xl animate-blob"
-          style={{ animationDelay: "-12s" }}
-        ></div>
-      </div>
+    <section className="relative overflow-hidden bg-gradient-to-b from-blue-50/50 via-white to-slate-50 pt-32 pb-20 md:pt-40 md:pb-28">
+      {/* Background Decor - dot grid, same as Hero */}
+      <div className="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:16px_16px] opacity-60"></div>
+      <div className="absolute left-1/2 -top-32 h-[800px] w-[800px] -translate-x-1/2 rounded-full bg-gradient-to-tr from-blue-200/30 to-sky-100/40 blur-3xl"></div>
 
-      {/* Grid background */}
-      <div
-        className="absolute inset-0 bg-grid opacity-40 [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_70%)]"
-        aria-hidden="true"
-      ></div>
+      <div className="relative mx-auto max-w-7xl px-4">
+        <motion.div
+          initial={{ opacity: 0, x: -30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          className="max-w-3xl"
+        >
+          <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50/70 px-4 py-2 text-xs font-medium text-blue-700 backdrop-blur-sm">
+            <span>{aboutHeroData.badge}</span>
+          </div>
 
-      {/* Content */}
-      <div className="container-x relative">
-        <div className="max-w-3xl">
-          <span className="inline-flex items-center gap-2 rounded-full border border-brand/20 bg-brand/5 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-brand">
-            <span className="h-1.5 w-1.5 rounded-full gradient-brand"></span>
-            {aboutHeroData.badge}
-          </span>
-
-          <h1 className="mt-6 text-4xl sm:text-5xl md:text-6xl font-bold text-navy leading-[1.05]">
+          <h1 className="mt-6 text-4xl font-bold leading-[1.05] md:text-6xl text-slate-900 tracking-tight">
             {aboutHeroData.heading}
-            <span className="text-gradient-brand">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-800 to-sky-500">
               {aboutHeroData.headingHighlight}
             </span>
           </h1>
 
-          <p className="mt-6 text-lg text-muted-foreground max-w-2xl">
+          <p className="mt-6 max-w-xl text-lg text-slate-600 leading-relaxed">
             {aboutHeroData.description}
           </p>
 
-          <div className="mt-8 flex flex-wrap gap-3">
-            {/* Yahan <a> tag add kar diya gaya hai */}
+          <div className="mt-8 flex gap-4">
             <a
               href={aboutHeroData.cta.href}
-              className="gradient-brand inline-flex items-center gap-2 rounded-full px-6 py-3.5 text-sm font-semibold text-white shadow-premium hover:shadow-glow transition-all"
+              className="inline-flex items-center gap-2 rounded-full bg-blue-600 px-6 py-3.5 font-semibold text-white shadow-md hover:bg-blue-700 hover:-translate-y-0.5 transition-all duration-200"
             >
               <Calendar className="h-4 w-4" aria-hidden="true" />
               {aboutHeroData.cta.label}
             </a>
           </div>
-        </div>
+
+          <div className="mt-10 text-sm text-slate-500">
+            <strong className="text-slate-900 font-semibold">2,400+</strong> brands worldwide |
+            <strong className="text-slate-900 ml-2 font-semibold">Real humans, No Bots</strong>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

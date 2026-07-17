@@ -1,4 +1,4 @@
-import Navbar from "./Components/navbar"; // Path to your navbar component
+
 import Hero from "./Components/hero"; // Path to your navbar component
 import Features from "./Components/features"; // Path to your navbar component
 import Work from "./Components/work"; // Path to your navbar component
@@ -9,12 +9,10 @@ import Costumers from "./Components/costumerresults"; // Path to your navbar com
 import Plan from "./Components/plan"; // Path to your navbar component
 import Blogs from "./Components/blogs"; // Path to your navbar component
 import News from "./Components/newsletter"; // Path to your navbar component
-import Footer from "./Components/footer"; // Path to your navbar component
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
-        <Navbar />
         <Hero />
         <Features />
         <Work />
@@ -25,7 +23,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Plan />
         <Blogs />
         <News />
-        <Footer />
       </>
   );
 }
