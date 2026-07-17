@@ -10,7 +10,7 @@ const NAV_LINKS = [
     label: "Products",
     href: "#products",
     dropdown: [
-      { label: "Website", href: "#live-chat" },
+      { label: "Website Live Chat", href: "#live-chat" },
       { label: "Lead Qualification", href: "#lead-qualification" },
       { label: "Appointment Scheduling", href: "#appointment-scheduling" },
       { label: "Lead Management", href: "#lead-management" },
