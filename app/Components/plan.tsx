@@ -4,9 +4,9 @@ import { motion } from "framer-motion";
 import { Check, ArrowRight } from "lucide-react";
 
 const plans = [
-  { name: "Starter", price: "$249", desc: "For small teams", features: ["Website Live Chat", "Basic lead capture", "Email notifications", "Standard analytics"], highlight: false },
-  { name: "Growth", price: "$599", desc: "Most popular", features: ["Everything in Starter", "Lead qualification flows", "Appointment scheduling", "CRM integration"], highlight: true },
-  { name: "Business", price: "$1,299", desc: "For scaling teams", features: ["Everything in Growth", "Multi-team routing", "Advanced analytics", "Priority support"], highlight: false },
+  { name: "Starter", price: "$45", desc: "For small teams", features: ["Website Live Chat", "Basic lead capture", "Email notifications", "Standard analytics"], highlight: false },
+  { name: "Growth", price: "$59", desc: "Most popular", features: ["Everything in Starter", "Lead qualification flows", "Appointment scheduling", "CRM integration"], highlight: true },
+  { name: "Business", price: "$65", desc: "For scaling teams", features: ["Everything in Growth", "Multi-team routing", "Advanced analytics", "Priority support"], highlight: false },
   { name: "Enterprise", price: "Custom", desc: "Enterprise-grade", features: ["Everything in Business", "SSO / SAML", "Dedicated CSM", "SLA & compliance"], highlight: false },
 ];
 
@@ -20,7 +20,7 @@ export default function PricingSection() {
             Pricing
           </span>
           <h2 className="text-5xl md:text-6xl font-extrabold text-slate-900 tracking-tighter mb-6">
-            Plans built to <span className="text-blue-600">scale with revenue.</span>
+            Plans start as low as <span className="text-blue-600">$45/month</span>
           </h2>
           <button className="text-blue-600 font-bold flex items-center gap-2 mx-auto hover:gap-3 transition-all">
             Full comparison <ArrowRight className="w-4 h-4" />
