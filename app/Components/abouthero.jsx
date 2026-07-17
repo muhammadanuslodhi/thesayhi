@@ -58,7 +58,11 @@ export default function AboutHero() {
             {aboutHeroData.description}
           </p>
 
-          <div className="mt-8 flex flex-wrap gap-3"> href={aboutHeroData.cta.href} className="gradient-brand inline-flex items-center gap-2 rounded-full px-6 py-3.5 text-sm font-semibold text-white shadow-premium hover:shadow-glow transition-all"/>
+          <div className="mt-8 flex flex-wrap gap-3">
+            
+              href={aboutHeroData.cta.href}
+              className="gradient-brand inline-flex items-center gap-2 rounded-full px-6 py-3.5 text-sm font-semibold text-white shadow-premium hover:shadow-glow transition-all"
+            >
               <Calendar className="h-4 w-4" aria-hidden="true" />
               {aboutHeroData.cta.label}
             </a>
