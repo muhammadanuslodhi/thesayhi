@@ -36,6 +36,7 @@ const NAV_LINKS = [
     ],
   },
   { label: "About", href: "#about" },
+  { label: "Contact", href: "#contact" },
 ];
 
 export default function Navbar() {
@@ -95,7 +96,7 @@ export default function Navbar() {
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center">
             <Link href="#contact" className="px-5 py-2 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 text-white text-[13px] font-semibold hover:bg-slate-800 transition-all shadow-sm">
-              Contact Us
+              Book a Demo
             </Link>
           </div>
 
@@ -138,7 +139,7 @@ export default function Navbar() {
             )}
             <div className="mt-6">
               <Link href="#contact" onClick={closeMobileMenu} className="block w-full py-3 text-center rounded-xl bg-blue-600 text-white font-semibold hover:bg-blue-700 transition-all">
-                Contact Us
+                Book a Demo
               </Link>
             </div>
           </nav>
