@@ -59,7 +59,8 @@ export default function AboutHero() {
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
-            
+            {/* Yahan <a> tag add kar diya gaya hai */}
+            <a
               href={aboutHeroData.cta.href}
               className="gradient-brand inline-flex items-center gap-2 rounded-full px-6 py-3.5 text-sm font-semibold text-white shadow-premium hover:shadow-glow transition-all"
             >
