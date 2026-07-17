@@ -53,11 +53,6 @@ export default function AboutHero() {
               {aboutHeroData.cta.label}
             </a>
           </div>
-
-          <div className="mt-10 text-sm text-slate-500">
-            <strong className="text-slate-900 font-semibold">2,400+</strong> brands worldwide |
-            <strong className="text-slate-900 ml-2 font-semibold">Real humans, No Bots</strong>
-          </div>
         </motion.div>
       </div>
     </section>
