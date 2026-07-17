@@ -1,10 +1,19 @@
+
+
 import AboutHero from "../Components/abouthero";
+import OurStory from "../Components/ourStory";
+import MissionVision from "../Components/MissionVision";
+import OurValues from "../Components/OurValues";
+import NewsletterSection from "../Components/newsletter";
 
 export default function AboutPage() {
   return (
     <main>
       <AboutHero />
-      {/* baaki sections yahan add karein */}
+      <OurStory />
+      <MissionVision />
+      <OurValues />
+      <NewsletterSection />
     </main>
   );
 }
