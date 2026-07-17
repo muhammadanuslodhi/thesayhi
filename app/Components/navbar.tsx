@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Menu, X, ChevronDown } from "lucide-react";
 
 const NAV_LINKS = [
-  { label: "Home", href: "#home" },
+  { label: "Home", href: "/" },
   {
     label: "Products",
     href: "#products",
@@ -18,25 +18,25 @@ const NAV_LINKS = [
   },
   {
     label: "Solutions",
-    href: "#solutions",
+    href: "solutions",
     dropdown: [
       { label: "For Sales Teams", href: "#for-sales" },
       { label: "For Support Teams", href: "#for-support" },
       { label: "For Agencies", href: "#for-agencies" },
     ],
   },
-  { label: "Pricing", href: "#pricing" },
+  { label: "Pricing", href: "pricing" },
   {
     label: "Resources",
     href: "#resources",
     dropdown: [
       { label: "Blog", href: "#blog" },
-      { label: "Help Center", href: "#help-center" },
-      { label: "Case Studies", href: "#case-studies" },
+      { label: "Help Center", href: "help-center" },
+      { label: "Case Studies", href: "case-studies" },
     ],
   },
-  { label: "About", href: "#about" },
-  { label: "Contact", href: "#contact" },
+  { label: "About", href: "about" },
+  { label: "Contact", href: "contact" },
 ];
 
 export default function Navbar() {
