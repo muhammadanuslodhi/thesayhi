@@ -1,42 +1,51 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, MessageSquare, Target, Calendar, UserCheck, Inbox, Plug, BarChart3, Headphones, Briefcase, Hospital, Building, Scale, Wrench, Megaphone, GraduationCap, Banknote } from "lucide-react";
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
   {
     label: "Products",
-    href: "#products",
+    href: "/products", // Root link add ki
     dropdown: [
-      { label: "Website", href: "#live-chat" },
-      { label: "Lead Qualification", href: "#lead-qualification" },
-      { label: "Appointment Scheduling", href: "#appointment-scheduling" },
-      { label: "Lead Management", href: "#lead-management" },
+      { label: "Website Live Chat", desc: "Engage every visitor in real time.", icon: MessageSquare, href: "/products/website-live-chat" },
+      { label: "Lead Qualification", desc: "Identify high-intent prospects in real time.", icon: Target, href: "/products/lead-qualification" },
+      { label: "Appointment Scheduling", desc: "Book meetings on the spot.", icon: Calendar, href: "/products/appointment-scheduling" },
+      { label: "Lead Management", desc: "Track every lead to close.", icon: UserCheck, href: "/products/lead-management" },
+      { label: "Conversation Inbox", desc: "One unified thread per contact.", icon: Inbox, href: "/products/conversation-inbox" },
+      { label: "CRM Integrations", desc: "Sync with your stack in minutes.", icon: Plug, href: "/products/crm-integrations" },
+      { label: "Analytics Dashboard", desc: "Measure what actually converts.", icon: BarChart3, href: "/products/analytics-dashboard" },
+      { label: "Human Agent Workspace", desc: "Purpose-built for real people.", icon: Headphones, href: "/products/human-agent-workspace" },
     ],
   },
   {
     label: "Solutions",
-    href: "solutions",
+    href: "/solutions",
     dropdown: [
-      { label: "For Sales Teams", href: "#for-sales" },
-      { label: "For Support Teams", href: "#for-support" },
-      { label: "For Agencies", href: "#for-agencies" },
+      { label: "Law Firms", desc: "", icon: Scale, href: "/solutions/law-firms" },
+      { label: "Medical Practices", desc: "", icon: Hospital, href: "/solutions/medical" },
+      { label: "Real Estate", desc: "", icon: Building, href: "/solutions/real-estate" },
+      { label: "Insurance", desc: "", icon: Briefcase, href: "/solutions/insurance" },
+      { label: "Home Services", desc: "", icon: Wrench, href: "/solutions/home-services" },
+      { label: "Marketing Agencies", desc: "", icon: Megaphone, href: "/solutions/marketing-agencies" },
+      { label: "Education", desc: "", icon: GraduationCap, href: "/solutions/education" },
+      { label: "Financial Services", desc: "", icon: Banknote, href: "/solutions/financial-services" },
     ],
   },
-  { label: "Pricing", href: "pricing" },
+  { label: "Pricing", href: "/pricing" },
   {
     label: "Resources",
-    href: "#resources",
+    href: "/resources", // Root link add ki
     dropdown: [
-      { label: "Blog", href: "#blog" },
-      { label: "Help Center", href: "help-center" },
-      { label: "Case Studies", href: "case-studies" },
+      { label: "Blog", desc: "Latest industry insights.", icon: MessageSquare, href: "/resources/blog" },
+      { label: "Help Center", desc: "Get support anytime.", icon: Headphones, href: "/resources/help-center" },
+      { label: "Case Studies", desc: "See our success stories.", icon: BarChart3, href: "/resources/case-studies" },
     ],
   },
-  { label: "About", href: "about" },
-  { label: "Contact", href: "contact" },
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
@@ -44,6 +53,7 @@ export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openDesktopDropdown, setOpenDesktopDropdown] = useState<string | null>(null);
   const [openMobileDropdown, setOpenMobileDropdown] = useState<string | null>(null);
+  const navRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -51,99 +61,97 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const closeMobileMenu = () => {
-    setIsMobileMenuOpen(false);
-    setOpenMobileDropdown(null);
-  };
+  // Click outside to close
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (navRef.current && !navRef.current.contains(event.target as Node)) {
+        setOpenDesktopDropdown(null);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   return (
     <header className={`fixed top-0 inset-x-0 z-[9999] transition-all duration-300 ease-in-out ${isScrolled ? "py-2" : "py-4"}`}>
-      <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <div className={`relative flex items-center justify-between px-4 sm:px-6 py-2.5 transition-all duration-300 rounded-full border ${isScrolled ? "bg-white/90 backdrop-blur-md border-slate-200 shadow-lg" : "bg-transparent border-transparent"}`}>
+      <div ref={navRef} className="mx-auto max-w-7xl px-4 sm:px-6">
+        <div className={`relative z-40 flex items-center justify-between px-6 py-2.5 transition-all duration-300 rounded-full border ${isScrolled ? "bg-white/90 backdrop-blur-md border-slate-200 shadow-lg" : "bg-transparent border-transparent"}`}>
           
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 z-50">
+          <Link href="/" className="flex items-center gap-2 z-50 cursor-pointer">
              <img alt="Logo" className="h-8 w-auto object-contain" src="/logo1.png" />
           </Link>
 
-          {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-1">
             {NAV_LINKS.map((item) =>
               item.dropdown ? (
-                <div key={item.label} className="relative group" onMouseEnter={() => setOpenDesktopDropdown(item.label)} onMouseLeave={() => setOpenDesktopDropdown(null)}>
-                  <button className={`flex items-center gap-1 px-4 py-2 text-[14px] font-medium rounded-full transition-all duration-200 ${openDesktopDropdown === item.label ? "text-blue-700 bg-blue-50" : "text-slate-600 hover:text-blue-700 hover:bg-slate-50"}`}>
+                <div key={item.label} className="relative">
+                  <button
+                    onClick={() => setOpenDesktopDropdown(openDesktopDropdown === item.label ? null : item.label)}
+                    className={`flex items-center gap-1 px-4 py-2 text-[14px] font-medium rounded-full transition-all cursor-pointer ${openDesktopDropdown === item.label ? "text-blue-700" : "text-slate-600 hover:text-blue-700"}`}
+                  >
                     {item.label}
                     <ChevronDown size={14} className={`transition-transform duration-300 ${openDesktopDropdown === item.label ? "rotate-180" : ""}`} />
                   </button>
-                  <div className={`absolute left-0 pt-3 transition-all duration-300 origin-top ${openDesktopDropdown === item.label ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-2 pointer-events-none"}`}>
-                    <div className="w-56 rounded-2xl border border-slate-100 bg-white shadow-xl p-2 animate-in fade-in zoom-in-95 duration-200">
-                      {item.dropdown.map((sub) => (
-                        <Link key={sub.label} href={sub.href} className="flex items-center rounded-xl px-4 py-2.5 text-[13px] font-medium text-slate-600 hover:bg-blue-50 hover:text-blue-700 transition-all">
-                          {sub.label}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
                 </div>
               ) : (
-                <Link key={item.label} href={item.href} className="px-4 py-2 text-[14px] font-medium text-slate-600 rounded-full hover:bg-slate-50 hover:text-blue-700 transition-all">
+                <Link key={item.label} href={item.href} className="px-4 py-2 text-[14px] font-medium text-slate-600 rounded-full hover:text-blue-700 transition-all cursor-pointer">
                   {item.label}
                 </Link>
               )
             )}
           </nav>
 
-          {/* Desktop CTA */}
-          <div className="hidden md:flex items-center">
-            <Link href="/demo" className="px-5 py-2 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 text-white text-[13px] font-semibold hover:bg-slate-800 transition-all shadow-sm">
-              Book a Demo
-            </Link>
-          </div>
+          <Link href="/demo" className="hidden md:flex px-5 py-2 rounded-full bg-blue-600 text-white text-[13px] font-semibold hover:bg-blue-700 transition-all shadow-sm cursor-pointer">
+            Book a Demo
+          </Link>
 
-          {/* Mobile Menu Toggle */}
           <div className="flex md:hidden items-center z-50">
-            <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="w-10 h-10 flex items-center justify-center rounded-full bg-slate-100 text-slate-700">
+            <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="w-10 h-10 flex items-center justify-center rounded-full bg-slate-100 text-slate-700 cursor-pointer">
               {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
           </div>
         </div>
-      </div>
 
-      {/* Mobile Sidebar */}
-      <div className={`fixed inset-0 z-40 md:hidden transition-all duration-300 ${isMobileMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"}`}>
-        <div onClick={closeMobileMenu} className="absolute inset-0 bg-slate-900/20 backdrop-blur-sm" />
-        <div className={`absolute top-0 right-0 h-full w-[100%] max-w-sm bg-white shadow-2xl p-6 transition-transform duration-300 ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"}`}>
-          <nav className="flex flex-col gap-1 mt-16">
-            {NAV_LINKS.map((item) =>
-              item.dropdown ? (
-                <div key={item.label}>
-                  <button onClick={() => setOpenMobileDropdown(openMobileDropdown === item.label ? null : item.label)} className="w-full flex items-center justify-between py-3 px-4 rounded-xl text-slate-700 font-semibold hover:bg-slate-50 transition-colors">
-                    {item.label}
-                    <ChevronDown size={18} className={`transition-transform duration-300 ${openMobileDropdown === item.label ? "rotate-180" : ""}`} />
-                  </button>
-                  <div className={`grid transition-all duration-300 ${openMobileDropdown === item.label ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}>
-                    <div className="overflow-hidden">
-                      {item.dropdown.map((sub) => (
-                        <Link key={sub.label} href={sub.href} onClick={closeMobileMenu} className="block py-2.5 pl-8 text-[14px] text-slate-500 hover:text-blue-600 transition-colors">
-                          {sub.label}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
+        {/* Dropdown Container */}
+        {NAV_LINKS.map((item) => (
+          item.dropdown && (
+            <div
+              key={`${item.label}-dropdown`}
+              className={`absolute left-1/2 -translate-x-1/2 top-full pt-5 transition-all duration-300 origin-top pointer-events-none ${openDesktopDropdown === item.label ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-2"}`}
+            >
+              <div className="w-[95vw] max-w-[1000px] rounded-3xl border border-slate-100 bg-white shadow-2xl p-10">
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-8">
+                  {item.dropdown.map((sub) => {
+                    const Icon = sub.icon;
+                    return (
+                      <Link
+                        key={sub.label}
+                        href={sub.href}
+                        onClick={() => setOpenDesktopDropdown(null)}
+                        className="flex gap-4 group/item items-start cursor-pointer"
+                      >
+                        <div className="flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-xl bg-blue-50 text-blue-600 group-hover/item:bg-blue-600 group-hover/item:text-white transition-colors">
+                          <Icon size={22} />
+                        </div>
+                        <div>
+                          <h4 className="font-semibold text-slate-900 text-[15px]">{sub.label}</h4>
+                          {sub.desc && <p className="text-[13px] text-slate-500 mt-1 leading-snug">{sub.desc}</p>}
+                        </div>
+                      </Link>
+                    );
+                  })}
                 </div>
-              ) : (
-                <Link key={item.label} href={item.href} onClick={closeMobileMenu} className="py-3 px-4 rounded-xl text-slate-700 font-semibold hover:bg-slate-50 transition-colors">
-                  {item.label}
-                </Link>
-              )
-            )}
-            <div className="mt-6">
-              <Link href="#contact" onClick={closeMobileMenu} className="block w-full py-3 text-center rounded-xl bg-blue-600 text-white font-semibold hover:bg-blue-700 transition-all">
-                Book a Demo
-              </Link>
+                
+                <div className="mt-10 pt-6 border-t border-slate-100 flex justify-between items-center text-sm">
+                  <span className="text-slate-500">Everything you need to convert visitors — powered by real humans.</span>
+                  <Link href={item.href} onClick={() => setOpenDesktopDropdown(null)} className="text-blue-600 font-semibold hover:underline cursor-pointer">
+                    View all {item.label.toLowerCase()} →
+                  </Link>
+                </div>
+              </div>
             </div>
-          </nav>
-        </div>
+          )
+        ))}
       </div>
     </header>
   );
