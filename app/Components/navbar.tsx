@@ -6,7 +6,9 @@ import { Menu, X, ChevronDown, MessageSquare, Target, Calendar, UserCheck, Inbox
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
+
   {
+<<<<<<< Updated upstream
     label: "Products",
     href: "/products", // Root link add ki
     dropdown: [
@@ -18,9 +20,40 @@ const NAV_LINKS = [
       { label: "CRM Integrations", desc: "Sync with your stack in minutes.", icon: Plug, href: "/products/crm-integrations" },
       { label: "Analytics Dashboard", desc: "Measure what actually converts.", icon: BarChart3, href: "/products/analytics-dashboard" },
       { label: "Human Agent Workspace", desc: "Purpose-built for real people.", icon: Headphones, href: "/products/human-agent-workspace" },
+=======
+    label: "Features",
+    href: "/features",
+    dropdown: [
+      {
+        label: "Website Live Chat",
+        href: "/features/live-chat",
+      },
+      {
+        label: "Lead Qualification",
+        href: "/features/lead-qualification",
+      },
+      {
+        label: "Appointment Scheduling",
+        href: "/features/appointment-scheduling",
+      },
+      {
+        label: "CRM Integration",
+        href: "/features/crm-integration",
+      },
+      {
+        label: "Analytics Dashboard",
+        href: "/features/analytics-dashboard",
+      },
+      {
+        label: "Multi-Team Routing",
+        href: "/features/multi-team-routing",
+      },
+>>>>>>> Stashed changes
     ],
   },
+
   {
+<<<<<<< Updated upstream
     label: "Solutions",
     href: "/solutions",
     dropdown: [
@@ -47,7 +80,93 @@ const NAV_LINKS = [
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
+=======
+    label: "Industries",
+    href: "/industries",
+    dropdown: [
+      {
+        label: "Law Firms",
+        href: "/industries/law-firms",
+      },
+      {
+        label: "Medical Practices",
+        href: "/industries/medical-practices",
+      },
+      {
+        label: "Real Estate",
+        href: "/industries/real-estate",
+      },
+      {
+        label: "Insurance",
+        href: "/industries/insurance",
+      },
+      {
+        label: "Home Services",
+        href: "/industries/home-services",
+      },
+      {
+        label: "Marketing Agencies",
+        href: "/industries/marketing-agencies",
+      },
+      {
+        label: "Education",
+        href: "/industries/education",
+      },
+      {
+        label: "Financial Services",
+        href: "/industries/financial-services",
+      },
+    ],
+  },
 
+  {
+    label: "Pricing",
+    href: "/pricing",
+  },
+
+  {
+    label: "Resources",
+    href: "/resources",
+    dropdown: [
+      {
+        label: "Blog",
+        href: "/blog",
+      },
+      {
+        label: "Case Studies",
+        href: "/case-studies",
+      },
+      {
+        label: "Guides",
+        href: "/guides",
+      },
+      {
+        label: "FAQ",
+        href: "/faq",
+      },
+    ],
+  },
+>>>>>>> Stashed changes
+
+  {
+    label: "Company",
+    href: "/company",
+    dropdown: [
+      {
+        label: "About",
+        href: "/about",
+      },
+      {
+        label: "Partner Program",
+        href: "/partner-program",
+      },
+      {
+        label: "Contact",
+        href: "/contact",
+      },
+    ],
+  },
+];
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);

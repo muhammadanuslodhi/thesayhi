@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Calendar } from "lucide-react";
 
 const aboutHeroData = {
-  badge: "🚀 demo TheSayHi",
+  badge: "🚀 Demo TheSayHi",
   heading: "See TheSayHi in action, ",
   headingHighlight: "tailored to your business",
   description:
