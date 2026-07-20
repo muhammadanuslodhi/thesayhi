@@ -9,7 +9,10 @@ import { faTwitter, faLinkedinIn, faFacebookF, faInstagram } from "@fortawesome/
 import { faCommentDots } from "@fortawesome/free-solid-svg-icons";
 
 config.autoAddCss = false;
-
+const legalLinks = [
+  { label: "Privacy Policy", href: "/privacy" },
+  { label: "Terms of Service", href: "/terms" },
+];
 const FOOTER_LINKS = {
   Products: [
     { label: "Website Live Chat", href: "/products/#website-live-chat" },
@@ -92,11 +95,15 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-slate-100 gap-6">
           <p className="text-sm text-slate-400">© 2026 TheSayHi. All rights reserved.</p>
           <div className="flex gap-8">
-            {["Privacy Policy", "Terms of Service", "Cookies"].map((item) => (
-              <Link key={item} href={`/${item.toLowerCase().replace(/\s+/g, '-')}`} className="text-sm text-slate-500 hover:text-slate-900 transition-colors">
-                {item}
-              </Link>
-            ))}
+            {legalLinks.map((item) => (
+  <Link
+    key={item.label}
+    href={item.href}
+    className="text-sm text-slate-500 hover:text-slate-900 transition-colors"
+  >
+    {item.label}
+  </Link>
+))}
           </div>
         </div>
       </div>
