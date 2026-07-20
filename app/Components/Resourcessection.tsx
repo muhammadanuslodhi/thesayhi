@@ -44,7 +44,7 @@ const cards = [
 
 export default function ResourcesSection() {
   return (
-    <section className="pb-24 bg-white">
+    <section className="py-24 bg-white">
       <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {/* Featured / Playbook card */}
         <Link
