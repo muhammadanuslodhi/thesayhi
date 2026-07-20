@@ -116,7 +116,7 @@ const PrivacyPolicy: React.FC = () => {
         </div>
       </div>
 
-      <div className="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-lg">
+      <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg">
         <p className="text-gray-800 text-sm">
           <strong>Notice:</strong> We reserve the right to refuse registration or suspend Accounts that contain false, misleading, or incomplete information.
         </p>
@@ -184,7 +184,7 @@ const PrivacyPolicy: React.FC = () => {
         </div>
       </div>
 
-      <div className="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-lg">
+      <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg">
         <p className="text-gray-800 text-sm">
           <strong>Plan Modifications:</strong> We reserve the right to introduce new subscription plans, modify existing plans, or discontinue certain offerings at any time. Material changes affecting existing subscriptions will be communicated in accordance with applicable law or your subscription agreement.
         </p>
@@ -223,7 +223,7 @@ const PrivacyPolicy: React.FC = () => {
         </div>
       </div>
 
-      <div className="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-lg space-y-2">
+      <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg space-y-2">
         <p className="text-gray-800 text-sm">
           <strong>Automatic Conversion:</strong> Trial accounts may automatically convert to a paid subscription unless cancelled before the trial period ends, where permitted by applicable law and disclosed at sign-up.
         </p>
@@ -598,9 +598,9 @@ const PrivacyPolicy: React.FC = () => {
         </p>
       </div>
 
-      <div className="bg-amber-50 border-l-4 border-amber-500 p-6 rounded-r-lg">
-        <h4 className="font-semibold text-amber-900 mb-2">License Limitations</h4>
-        <p className="text-amber-800 text-sm">
+      <div className="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-lg">
+        <h4 className="font-semibold text-blue-900 mb-2">License Limitations</h4>
+        <p className="text-blue-800 text-sm">
           This license does not grant ownership of any intellectual property and automatically terminates upon expiration or termination of your subscription.
         </p>
       </div>
@@ -731,28 +731,28 @@ const PrivacyPolicy: React.FC = () => {
       
       <div className="grid gap-3 mb-8">
         <div className="bg-white p-4 rounded-lg border border-gray-200 shadow-sm">
-          <span className="text-amber-500 font-bold mr-2">!</span>
+          <span className="text-blue-500 font-bold mr-2">!</span>
           <span className="text-gray-600">Be incomplete.</span>
         </div>
         <div className="bg-white p-4 rounded-lg border border-gray-200 shadow-sm">
-          <span className="text-amber-500 font-bold mr-2">!</span>
+          <span className="text-blue-500 font-bold mr-2">!</span>
           <span className="text-gray-600">Change without notice.</span>
         </div>
         <div className="bg-white p-4 rounded-lg border border-gray-200 shadow-sm">
-          <span className="text-amber-500 font-bold mr-2">!</span>
+          <span className="text-blue-500 font-bold mr-2">!</span>
           <span className="text-gray-600">Contain bugs or errors.</span>
         </div>
         <div className="bg-white p-4 rounded-lg border border-gray-200 shadow-sm">
-          <span className="text-amber-500 font-bold mr-2">!</span>
+          <span className="text-blue-500 font-bold mr-2">!</span>
           <span className="text-gray-600">Be discontinued at any time.</span>
         </div>
       </div>
 
-      <div className="bg-amber-50 border-l-4 border-amber-500 p-6 rounded-r-lg">
-        <p className="text-amber-900 text-sm leading-relaxed mb-4">
+      <div className="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-lg">
+        <p className="text-blue-900 text-sm leading-relaxed mb-4">
           <strong>Warranty Disclaimer:</strong> Unless otherwise stated, beta features are provided "AS IS" without warranties of any kind.
         </p>
-        <p className="text-amber-800 text-sm font-semibold">
+        <p className="text-blue-800 text-sm font-semibold">
           Customers use beta features at their own risk and should avoid relying on them for mission-critical business operations.
         </p>
       </div>
