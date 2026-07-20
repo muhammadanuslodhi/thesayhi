@@ -4,9 +4,9 @@ import { motion } from "framer-motion";
 import { Calendar } from "lucide-react";
 
 const aboutHeroData = {
-  badge: "🚀 Pricing TheSayHi",
-  heading: "Plans built to scale with  ",
-  headingHighlight: "your revenue.",
+  badge: "Resources",
+  heading: "Learn how top teams convert ",
+  headingHighlight: "every visitor.",
   description:
     "Only pay for what you use. Every plan includes real human specialists — no scripts, no bots.",
   cta: {
@@ -15,7 +15,7 @@ const aboutHeroData = {
   },
 };
 
-export default function PricingHero() {
+export default function ResourceHero() {
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-blue-50/50 via-white to-slate-50 pt-32 pb-20 md:pt-40 md:pb-28">
       {/* Background Decor - dot grid, same as Hero */}
