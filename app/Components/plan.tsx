@@ -1,5 +1,5 @@
 "use client";
-
+import Link from 'next/link';
 import { motion } from "framer-motion";
 import { Check, ArrowRight } from "lucide-react";
 
@@ -67,13 +67,16 @@ export default function PricingSection() {
                 ))}
               </ul>
 
-              <button className={`w-full py-3 rounded-xl font-bold transition-all ${
-                plan.highlight 
-                  ? "bg-blue-600 text-white hover:bg-blue-700 shadow-lg shadow-blue-600/30" 
-                  : "bg-slate-100 text-slate-900 hover:bg-slate-200"
-              }`}>
-                Book a Demo
-              </button>
+              <Link 
+  href="/demo" 
+  className={`block w-full py-3 rounded-xl font-bold text-center transition-all ${
+    plan.highlight 
+      ? "bg-blue-600 text-white hover:bg-blue-700 shadow-lg shadow-blue-600/30" 
+      : "bg-slate-100 text-slate-900 hover:bg-slate-200"
+  }`}
+>
+  Book a Demo
+</Link>
             </motion.div>
           ))}
         </div>

@@ -1,14 +1,14 @@
 "use client";
-import Link from "next/link";
+
 import { motion } from "framer-motion";
 import { Calendar } from "lucide-react";
-import { MessageSquare, Target, ClipboardList, Inbox, RefreshCw, BarChart3, Users } from "lucide-react";
+
 const aboutHeroData = {
-  badge: "🚀 Products TheSayHi",
-  heading: "One platform for every",
-  headingHighlight: "visitor conversation.",
-  desc:
-    "TheSayHi is a full stack for human-led customer engagement — engage, qualify, schedule, manage, and measure in one place.",
+  badge: "🚀 Demo TheSayHi",
+  heading: "Tailored to how your ",
+  headingHighlight: "industry wins.",
+  description:
+    "rom law firms to home services, TheSayHi is configured to the language, workflows, and outcomes of your industry.",
   cta: {
     label: "Book a Demo",
     href: "/demo",
@@ -41,7 +41,7 @@ export default function AboutHero() {
           </h1>
 
           <p className="mt-6 max-w-xl text-lg text-slate-600 leading-relaxed">
-            {aboutHeroData.desc}
+            {aboutHeroData.description}
           </p>
 
           <div className="mt-8 flex gap-4">
@@ -55,8 +55,6 @@ export default function AboutHero() {
           </div>
         </motion.div>
       </div>
-
     </section>
-
   );
 }

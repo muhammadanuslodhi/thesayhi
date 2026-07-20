@@ -6,49 +6,49 @@ import { MessageSquare, Target, Calendar, ClipboardList, Inbox, RefreshCw, BarCh
 // Your defined products array
 const products = [
   { 
-    id: "prod-live-chat", 
+    id: "website-live-chat", 
     title: "Website Live Chat", 
     desc: "Capture every visitor the moment they land on your page with our intelligent, real-time chat widget. Features automated greeting triggers and instant response capabilities.", 
     icon: MessageSquare 
   },
   { 
-    id: "prod-lead-qual", 
+    id: "lead-qualification", 
     title: "Lead Qualification", 
     desc: "Automatically score and filter incoming leads based on custom behavioral parameters. Filter out low-intent users so your team focuses exclusively on high-value prospects.", 
     icon: Target 
   },
   { 
-    id: "prod-app-schedule", 
+    id: "appointment-scheduling", 
     title: "Appointment Scheduling", 
     desc: "Take the friction out of your sales cycle. Sync in real-time with team calendars, auto-generate meeting links, and send automatic reminders to maximize attendance.", 
     icon: Calendar 
   },
   { 
-    id: "prod-lead-mgmt", 
+    id: "lead-management", 
     title: "Lead Management", 
     desc: "Gain complete visibility into your growth pipeline. Track, tag, and organize prospects in a centralized database to ensure every lead is nurtured effectively until closure.", 
     icon: ClipboardList 
   },
   { 
-    id: "prod-conv-inbox", 
+    id: "conversation-inbox", 
     title: "Conversation Inbox", 
     desc: "Eliminate platform hopping by unifying live chat, emails, and social media into one streamlined interface. Manage and assign inquiries from a single high-efficiency dashboard.", 
     icon: Inbox 
   },
   { 
-    id: "prod-crm-int", 
+    id: "crm-integrations", 
     title: "CRM Integrations", 
     desc: "Keep your customer data synchronized effortlessly. Connect seamlessly with your existing tech stack and automatically push lead interaction data to your primary database.", 
     icon: RefreshCw 
   },
   { 
-    id: "prod-analytics", 
+    id: "analytics-dashboard", 
     title: "Analytics Dashboard", 
     desc: "Make data-driven decisions with a comprehensive view of business performance. Visualize key metrics to identify bottlenecks and optimize your strategy for maximum revenue.", 
     icon: BarChart3 
   },
   { 
-    id: "prod-agent-ws", 
+    id: "human-agent-workspace", 
     title: "Human Agent Workspace", 
     desc: "Provide your team with the ultimate toolset for high-volume environments. Organizes lead history, quick-reply macros, and active conversations in a distraction-free layout.", 
     icon: Users 
@@ -89,9 +89,12 @@ export default function Productmain() {
                 < Link  href="/pricing#pricing" className="inline-flex items-center gap-2 rounded-full bg-blue-600 px-6 py-3.5 font-semibold text-white shadow-md hover:bg-blue-700 hover:-translate-y-0.5 transition-all duration-200">
                   View Pricing
                 </ Link>
-                < Link href="/demo" className="px-5 py-2.5 border border-slate-200 text-slate-700 rounded-xl text-sm font-bold hover:bg-slate-50 transition-colors">
-                  Book a Demo
-                </ Link >
+                <Link 
+                href="/demo" 
+                className="inline-flex items-center text-sm font-bold text-blue-600 hover:text-blue-800 transition-colors"
+              >
+                Book a Demo →
+              </Link>
               </div>
             </motion.div>
           ))}
