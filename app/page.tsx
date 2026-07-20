@@ -9,6 +9,7 @@ import Costumers from "./Components/costumerresults"; // Path to your navbar com
 import Plan from "./Components/plan"; // Path to your navbar component
 import Blogs from "./Components/blogs"; // Path to your navbar component
 import News from "./Components/newsletter"; // Path to your navbar component
+import FloatingVideo from "./Components/FloatingVideo"; // Path to your navbar component
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -23,6 +24,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Plan />
         <Blogs />
         <News />
+
+        <FloatingVideo />
       </>
   );
 }

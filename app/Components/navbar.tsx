@@ -39,7 +39,7 @@ const NAV_LINKS = [
     label: "Resources",
     href: "/resources",
     dropdown: [
-      { label: "Blog", icon: MessageSquare, href: "/resources/blog" },
+      { label: "Blog", icon: MessageSquare, href: "/blog" },
       { label: "Help Center", icon: Headphones, href: "/resources/help-center" },
       { label: "Case Studies", icon: BarChart3, href: "/resources/case-studies" },
     ],
