@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
@@ -9,39 +10,37 @@ import { faCommentDots } from "@fortawesome/free-solid-svg-icons";
 
 config.autoAddCss = false;
 
-const footerLinks = {
-  Features: [
-    "Website Live Chat",
-    "Lead Qualification",
-    "Appointment Scheduling",
-    "CRM Integration",
-    "Analytics Dashboard",
-    "Multi-Team Routing",
+const FOOTER_LINKS = {
+  Products: [
+    { label: "Website Live Chat", href: "/products/#website-live-chat" },
+    { label: "Lead Qualification", href: "/products/#lead-qualification" },
+    { label: "Appointment Scheduling", href: "/products/#appointment-scheduling" },
+    { label: "Lead Management", href: "/products/#lead-management" },
+    { label: "Conversation Inbox", href: "/products/#conversation-inbox" },
+    { label: "CRM Integrations", href: "/products/#crm-integrations" },
+    { label: "Analytics Dashboard", href: "/products/#analytics-dashboard" },
+    { label: "Human Agent Workspace", href: "/products/#human-agent-workspace" },
   ],
-
   Industries: [
-    "Law Firms",
-    "Medical Practices",
-    "Real Estate",
-    "Insurance",
-    "Home Services",
-    "Marketing Agencies",
-    "Education",
-    "Financial Services",
+    { label: "Law Firms", href: "/industries/#law-firms" },
+    { label: "Medical Practices", href: "/industries/#medical" },
+    { label: "Real Estate", href: "/industries/#real-estate" },
+    { label: "Insurance", href: "/industries/#insurance" },
+    { label: "Home Services", href: "/industries/#home-services" },
+    { label: "Marketing Agencies", href: "/industries/#marketing-agencies" },
+    { label: "Education", href: "/industries/#education" },
+    { label: "Financial Services", href: "/industries/#financial-services" },
   ],
-
   Resources: [
-    "Blog",
-    "Case Studies",
-    "Pricing",
+    { label: "Blog", href: "/resources/blog" },
+    { label: "Help Center", href: "/resources/help-center" },
+    { label: "Case Studies", href: "/resources/case-studies" },
   ],
-
   Company: [
-    "About",
-    "Partner Program",
-    "Contact",
-    "Privacy Policy",
-    "Terms of Service",
+    { label: "About", href: "/about" },
+    { label: "Contact", href: "/contact" },
+    { label: "Privacy Policy", href: "/privacy" },
+    { label: "Terms of Service", href: "/terms" },
   ],
 };
 
@@ -73,15 +72,15 @@ export default function Footer() {
           </div>
 
           {/* Link Columns */}
-          {Object.entries(footerLinks).map(([title, links]) => (
+          {Object.entries(FOOTER_LINKS).map(([title, links]) => (
             <div key={title}>
               <h4 className="text-slate-900 font-bold text-xs uppercase tracking-widest mb-6">{title}</h4>
               <ul className="space-y-4">
                 {links.map((link) => (
-                  <li key={link}>
-                    <a href="#" className="text-sm text-slate-600 hover:text-blue-600 transition-colors">
-                      {link}
-                    </a>
+                  <li key={link.label}>
+                    <Link href={link.href} className="text-sm text-slate-600 hover:text-blue-600 transition-colors">
+                      {link.label}
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -94,9 +93,9 @@ export default function Footer() {
           <p className="text-sm text-slate-400">© 2026 TheSayHi. All rights reserved.</p>
           <div className="flex gap-8">
             {["Privacy Policy", "Terms of Service", "Cookies"].map((item) => (
-              <a key={item} href="#" className="text-sm text-slate-500 hover:text-slate-900 transition-colors">
+              <Link key={item} href={`/${item.toLowerCase().replace(/\s+/g, '-')}`} className="text-sm text-slate-500 hover:text-slate-900 transition-colors">
                 {item}
-              </a>
+              </Link>
             ))}
           </div>
         </div>
